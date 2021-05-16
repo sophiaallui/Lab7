@@ -141,15 +141,15 @@ router.setState = function(entry) {
   }
   //Set state to entry
   else {
-    let entryNum = router.findNum(entry); 
+    let curEntry = router.findEntry(entry); 
     //set styling 
     document.querySelector('body').setAttribute("class", "single-entry");
-    document.querySelector('h1').innerHTML = "Entry " + entryNum;
+    document.querySelector('h1').innerHTML = "Entry " + curEntry;
 
     //Delete and recreate component 
     document.querySelector('entry-page').remove(); 
-    let entryP = document.createElement('entry-page'); 
-    document.querySelector('body').appendChild(entryP); 
+    let entryPost = document.createElement('entry-page'); 
+    document.querySelector('body').appendChild(entryPost); 
     document.querySelector('entry-page').entry = entry;
   }
 
@@ -158,16 +158,16 @@ router.setState = function(entry) {
 /**
  * Helper function which finds entry number 
  */
-router.findNum = function(entry){ 
+router.findEntry = function(entry){ 
   //Get which number entry it is 
   let entries = document.querySelector('main').children
-  let i; 
-  for (i = 0; i < 10; i++){ 
+  let num; 
+  for (let i = 0; i < 10; i++){ 
     if (entries[i].entry.title == entry.title){ 
+      num = i + 1; 
       break;
     }
   }
-  let entryNum = (i + 1); 
   return entryNum; 
 }
 

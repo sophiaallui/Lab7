@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Change to entry when clicked
         newPost.addEventListener('click', () => {
           //Find which entry number it is 
-          let entryNum = router.findNum(entry); 
+          let entryNum = router.findEntry(entry); 
           //Push state of specific entry 
           window.history.pushState({page_id: 1, entry: entry}, "entry", "#entry" + entryNum); 
           setState(entry); 
