@@ -42,10 +42,10 @@ router.setState = function(entry) {
 
       document.querySelector('body').setAttribute("class", "");
 
-   }else if(window.location.hash == "#setting"){
+   }else if(window.location.hash == "#settings"){
 
-      document.querySelector('body').setAttribute("class", "setting");
-      document.querySelector('h1').innerText = "Setting";
+      document.querySelector('body').setAttribute("class", "settings");
+      document.querySelector('h1').innerText = "Settings";
 
    }else{ 
 
