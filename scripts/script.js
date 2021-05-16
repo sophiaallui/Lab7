@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newPost.addEventListener('click', () => {
           let curEntry = router.findEntry(entry); 
 
-          window.history.pushState({page_id: 1, entry: entry}, "entry", "#entry" + curEntry);
+          window.history.pushState({page_id: 1, entry: entry}, "", "#entry" + curEntry);
           setState(entry); 
 
       });
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('h1').addEventListener('click', ()=> { 
 
     if(window.location.hash != ""){ 
-      window.history.pushState({page_id: 0}, "", window.location.origin + "/Lab7"); 
+      window.history.pushState({page_id: 0}, "", window.location.origin + "/Lab7/"); 
       setState(); 
     }
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('img').addEventListener('click', () => {
     if(window.location.hash != "#settings"){ 
-      window.history.pushState({page_id:2}, "setting", "#settings"); 
+      window.history.pushState({page_id:2}, "", "#settings"); 
     }
   });
 

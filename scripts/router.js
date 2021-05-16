@@ -41,6 +41,8 @@ router.setState = function(entry) {
    if(window.location.hash == ""){ 
 
       document.querySelector('body').setAttribute("class", "");
+      document.querySelector('h1').innerHTML = "Journal Entries"
+
 
    }else if(window.location.hash == "#settings"){
 
