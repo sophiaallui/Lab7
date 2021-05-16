@@ -5,7 +5,7 @@ export const router = {};
 /**
  * Changes the "page" (state) that your SPA app is currently set to
  */
-router.setState = function() {
+router.setState = function(entry) {
   /**
    * - There are three states that your SPA app will have
    *    1. The home page
@@ -72,7 +72,7 @@ router.findEntry = function(entry){
 
    let foundEntry; 
 
-   for(i = 0; i < 10; i++){
+   for(let i = 0; i < 10; i++){
       if(entries[i].entry.title == entry.title){ 
          foundEntry = i + 1; 
          break; 

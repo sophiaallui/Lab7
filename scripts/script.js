@@ -18,11 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
           let curEntry = router.findEntry(entry); 
 
           window.history.pushState({page_id: 1, entry: entry}, "entry", "#entry" + curEntry);
+          setState(entry); 
+
       });
     });
   });
 
-  document.querySelectory('h1').addEventListener('click', () => { 
+  document.querySelector('h1').addEventListener('click', ()=> { 
 
     if(window.location.hash != ""){ 
       window.history.pushState({page_id: 0}, "", window.location.origin + "/Lab7"); 
@@ -32,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }); 
 
   document.querySelector('img').addEventListener('click', () => {
-    if(window.location.hash != "#setting"){ 
-      window.history.pushState({page_id:2}, "setting", "#setting"); 
+    if(window.location.hash != "#settings"){ 
+      window.history.pushState({page_id:2}, "setting", "#settings"); 
     }
   });
 
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if(event.state.page_id == 1) {
-    setState(event.state.entry);
+      setState(event.state.entry);
     }else {
       setState();
     }
@@ -65,3 +67,4 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
