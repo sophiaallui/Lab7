@@ -13,6 +13,55 @@ document.addEventListener('DOMContentLoaded', () => {
         let newPost = document.createElement('journal-entry');
         newPost.entry = entry;
         document.querySelector('main').appendChild(newPost);
+
+        newPost.addEventListener('click', () => {
+          let curEntry = router.findEntry(entry); 
+
+          window.history.pushState({page_id: 1, entry: entry}, "entry", "#entry" + curEntry);
       });
     });
-});
+  });
+
+  document.querySelectory('h1').addEventListener('click', () => { 
+
+    if(window.location.hash != ""){ 
+      window.history.pushState({page_id: 0}, "", window.location.origin + "/Lab7"); 
+      setState(); 
+    }
+
+  }); 
+
+  document.querySelector('img').addEventListener('click', () => {
+    if(window.location.hash != "#setting"){ 
+      window.history.pushState({page_id:2}, "setting", "#setting"); 
+    }
+  });
+
+  // Moving through session history
+  window.addEventListener('popstate', (event) => {
+    if(event.state == null) {
+      setState();
+      return;
+    }
+    
+    if(event.state.page_id == 1) {
+    setState(event.state.entry);
+    }else {
+      setState();
+    }
+  });
+  
+}); 
+
+//Service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/Lab7/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}

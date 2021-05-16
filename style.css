@@ -47,8 +47,7 @@ body.settings .div-settings {
 
 /* Single Entry CSS Start */
 body.single-entry entry-page {
-  /*display: block;*/ 
-  display: contents;
+  display: block;
 }
 
 body.single-entry main {
