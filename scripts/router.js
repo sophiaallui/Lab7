@@ -42,27 +42,43 @@ router.setState = function() {
 
       document.querySelector('body').setAttribute("class", "");
 
-   }
+   }else if(window.location.hash == "#setting"){
 
-   if(window.location.hash == "setting"){
-
-      document.querySelector('body').setAttribute("class", "#setting");
+      document.querySelector('body').setAttribute("class", "setting");
       document.querySelector('h1').innerText = "Setting";
 
+   }else{ 
+
+      let curEntry = router.findEntry(entry);
+
+      document.querySelector('body').setAttribute("class", "single-entry");
+      document.querySelector('h1').innerText = "Entry " + curEntry;
+
+      document.querySelector('entry-page').remove(); 
+      let addEntry = document.createElement('entry-page');
+
+      /* into entry page */
+      document.querySelector('body').append(addEntry); 
+      document.querySelector('entry-page').entry = entry; 
+
+
    }
 
-   /*
-   if(window.location.hash == "setting"){
+}
 
-      document.querySelector('body').setAttribute("class", "#setting");
-      document.querySelector('h1').innerText = "Setting";
+router.findEntry = function(entry){ 
 
-   }*/ 
+   let entries = document.querySelector('main').children; 
 
+   let foundEntry; 
 
-   
+   for(i = 0; i < 10; i++){
+      if(entries[i].entry.title == entry.title){ 
+         foundEntry = i + 1; 
+         break; 
+      }
+   }
 
-  
-
+   return foundEntry; 
 
 }
