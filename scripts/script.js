@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     });
-    
+
     //Change back to main page when title is clicked 
     document.querySelector('h1').addEventListener('click', ()=> { 
       //Don't nav to itself 
@@ -42,8 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setState(); 
       }
     });
-
-
 
     window.addEventListener('popstate', (event)=>{
       //If event.state == null, we're back at origin
