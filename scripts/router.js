@@ -35,4 +35,34 @@ router.setState = function() {
    *    1. You may add as many helper functions in this file as you like
    *    2. You may modify the parameters of setState() as much as you like
    */
+
+
+  // figure out which hash it is, then change the body setting 
+   if(window.location.hash == ""){ 
+
+      document.querySelector('body').setAttribute("class", "");
+
+   }
+
+   if(window.location.hash == "setting"){
+
+      document.querySelector('body').setAttribute("class", "#setting");
+      document.querySelector('h1').innerText = "Setting";
+
+   }
+
+   /*
+   if(window.location.hash == "setting"){
+
+      document.querySelector('body').setAttribute("class", "#setting");
+      document.querySelector('h1').innerText = "Setting";
+
+   }*/ 
+
+
+   
+
+  
+
+
 }
